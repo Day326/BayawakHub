@@ -1,0 +1,23 @@
+local Player = game.Players.LocalPlayer
+local placeId = game.PlaceId
+
+local Games = {
+    [16732694052] = "https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/Sea1",
+    [131716211654599] = "https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/Sea1",
+    [72907489978215] = "https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/Sea2",
+    [85896571713843] = "https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/BGS",
+    [122678592501168] = "https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/Beaks",
+    [126884695634066] = "https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/GAG",
+}
+
+local scriptUrl = Games[placeId]
+
+if scriptUrl then
+    local suc, res = pcall(function()
+        return game:HttpGet(scriptUrl, true)
+    end)
+    
+    if suc then
+        loadstring(res)()
+    end
+end
